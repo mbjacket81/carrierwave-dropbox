@@ -1,5 +1,5 @@
 # encoding: utf-8
-require 'dropbox_sdk'
+require 'dropbox'
 
 module CarrierWave
   module Storage
@@ -21,9 +21,10 @@ module CarrierWave
 
       def dropbox_client
         @dropbox_client ||= begin
-          session = DropboxSession.new(config[:app_key], config[:app_secret])
-          session.set_access_token(config[:access_token], config[:access_token_secret])
-          DropboxClient.new(session, config[:access_type])
+          Dropbox::Client.new(config[:access_token])
+          #session = DropboxSession.new(config[:app_key], config[:app_secret])
+          #session.set_access_token(config[:access_token], config[:access_token_secret])
+          #DropboxClient.new(session, config[:access_type])
         end
       end
 
