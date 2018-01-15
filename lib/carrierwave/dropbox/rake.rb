@@ -7,7 +7,7 @@ module CarrierWave
     module Rake
       extend self
 
-      def authorize(access_token, access_type)
+      def authorize(access_token)
         #session = create_new_session(app_key, app_secret)
 
         #puts "Visit this URL: #{session.get_authorize_url}"
